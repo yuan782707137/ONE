@@ -3,7 +3,7 @@
 #include "WelcomeScene.h"
 
 using namespace CocosDenshion;
-
+//修改了分支
 Scene* GameOver::createScene()
 {
 	auto scene = Scene::create();
@@ -20,12 +20,12 @@ bool GameOver::init()
 
 	TTFConfig config("fonts/yuehei.otf",48);
 
-	// ���ӱ���ͼƬ
+	// Ìí¼Ó±³¾°Í¼Æ¬
     auto sprite = Sprite::create("scene_end.png");
 	sprite->setPosition(Point(GAME_SCREEN_WIDTH/2,GAME_SCREEN_HEIGHT/2));
     this->addChild(sprite);
 
-	// �������¿�ʼ��ť
+	// Ìí¼ÓÖØÐÂ¿ªÊ¼°´Å¥
 	auto restartItem = MenuItemImage::create(
                                            "btn_restart01.png",
                                            "btn_restart02.png",
@@ -33,7 +33,7 @@ bool GameOver::init()
     
 	restartItem->setPosition(Vec2(GAME_SCREEN_WIDTH/2,GAME_SCREEN_HEIGHT/6));
 
-	// ���ӷ������˵���ť
+	// Ìí¼Ó·µ»ØÖ÷²Ëµ¥°´Å¥
 	auto backItem = MenuItemImage::create(
                                            "btn_back01.png",
                                            "btn_back02.png",
@@ -41,7 +41,7 @@ bool GameOver::init()
     
 	backItem->setPosition(Vec2(GAME_SCREEN_WIDTH/2,backItem->getContentSize().height/2 ));
     
-	// �����˳���Ϸ��ť
+	// Ìí¼ÓÍË³öÓÎÏ·°´Å¥
 	auto exitItem = MenuItemImage::create(
 											"btn_exit01.png",
 											"btn_exit02.png",
@@ -52,7 +52,7 @@ bool GameOver::init()
     menu->setPosition(Vec2::ZERO);
 	this -> addChild( menu );
 
-	// ����
+	// ·ÖÊý
 	auto labelScore = Label::createWithTTF(config, "  0  ");
 	labelScore -> setPosition(Point( GAME_SCREEN_WIDTH/2 , GAME_SCREEN_HEIGHT/1.4));
 	labelScore -> setTag(13);
@@ -87,7 +87,7 @@ void GameOver::setScore( int sc )
 
 	if( userDefault->getIntegerForKey("Int") < sc ){
 
-		// �¼�¼
+		// ÐÂ¼ÍÂ¼
 		auto newRecord = Sprite::create("sprite_newRecord.png");
 		newRecord -> setPosition(Point( GAME_SCREEN_WIDTH/3.05 , GAME_SCREEN_HEIGHT/1.22));
 		newRecord->setScale(10.0f);// start size
@@ -95,7 +95,7 @@ void GameOver::setScore( int sc )
 
 		this->addChild(newRecord);
 
-		// ��Ч
+		// ÒôÐ§
 		if (UserDefault::getInstance()->getBoolForKey(SOUND_KEY)) {                      
 			SimpleAudioEngine::getInstance()->playEffect("music_win.wav",false);  
 		}
@@ -103,7 +103,7 @@ void GameOver::setScore( int sc )
 	}
 	else
 	{
-		// ����
+		// ÒôÀÖ
 		if (UserDefault::getInstance()->getBoolForKey(SOUND_KEY)) {                      
 			SimpleAudioEngine::getInstance()->playEffect("music_fail.mp3",false);  
 		}
